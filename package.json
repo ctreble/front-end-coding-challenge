@@ -6,6 +6,7 @@
   "scripts": {
     "start-react": "lite-server --baseDir='./react-client/dist'",
     "start-ang": "lite-server --baseDir='./angular-client/'",
+    "start-server": "json-server db.json",
     "dev-react": "webpack -d --watch"
   },
   "author": "Hack Reactor",
