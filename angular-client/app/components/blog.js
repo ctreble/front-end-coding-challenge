@@ -32,17 +32,8 @@ angular.module("challenge").component("blog", {
       if (!ctrl.activetags.includes(tag)) {
         ctrl.activetags.push(tag);
       }
+      //filter the already filtered posts
       const filtered = [];
-
-      //   for (let j = 0; j < ctrl.activetags.length; j++) {
-      //     for (let i = 0; i < ctrl.dbPosts.length; i++) {
-      //         let tags = ctrl.dbPosts[i].tags;
-      //         if (tags.includes(ctrl.activetags[j]))
-      //           filtered.push(ctrl.dbPosts[i]);
-      //     }
-      //   }
-      //   ctrl.posts = filtered;
-
       for (let i = 0; i < ctrl.posts.length; i++) {
         if (ctrl.posts[i].tags.includes(tag)) {
           filtered.push(ctrl.posts[i]);
@@ -55,29 +46,30 @@ angular.module("challenge").component("blog", {
       //remove tag to active filters
       let index = ctrl.activetags.indexOf(tag);
       ctrl.activetags.splice(index, 1);
-
-      //array of tags to filter
-      // array of objects with tags
+      //hack
+      ctrl.activetags = [];
+      ctrl.posts = ctrl.dbPosts;
 
       //push only if all the tags are in the object with tags
-      const filter = [];
-      for (let i = 0; i < ctrl.dbPosts.length; i++) {
-        let check = ctrl.activetags.every(tag => {
-          let result = true;
-          for (let j = 0; j < ctrl.dbPosts[i].tags[j]; j++) {
-            if (tag !== ctrl.dbposts[i].tags[j]) {
-              result = false;
-            }
-          }
+      //ran out of time to get the unfiliter individually to work
+      //   const filter = [];
+      //   for (let i = 0; i < ctrl.dbPosts.length; i++) {
+      //     let check = ctrl.dbPosts[i].tags.every(tag => {
+      //       let result = true;
+      //       for (let j = 0; j < ctrl.activetags; j++) {
+      //         if (tag !== ctrl.activetags[j]) {
+      //             result = false;
 
-          return result;
-        });
+      //         }
+      //       }
+      //       return result;
+      //     });
 
-        if (check) {
-          filter.push(ctrl.dbPosts[i]);
-        }
-      }
-      ctrl.posts = filter;
+      //     if (check) {
+      //       filter.push(ctrl.dbPosts[i]);
+      //     }
+      //   }
+      //   ctrl.posts = filter;
     };
 
     this.$onInit = () => {
