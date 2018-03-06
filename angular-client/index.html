@@ -6,11 +6,26 @@
   <title>Front End Coding Challenge</title>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular-route.js"></script>
-</head>
-
-<body>
-  <h1>Front End Coding Challenge</h1>
+  <link rel="stylesheet" href="./style.css">
   <script src="app/app.js"></script>
+  <script src="./app/components/blog.js" ></script>
+  <script src="./app/components/favorites.js" ></script>
+  <script src="./app/components/postslist.js" ></script>
+  <script src="./app/components/tags.js" ></script>
+  <script src="./app/service/index.js" ></script>
+</head>
+ 
+<body ng-app="challenge" >
+  <header>
+    <h1>Blogger</h1>
+    <ul>
+      <li><a href="#!">Home</a></li>
+      <li><a href="#!fav" >Favorites</a></li>
+    </ul>
+  </header>
+  <div>
+    <blog></blog>
+  </div>
 </body>
 
 </html>
