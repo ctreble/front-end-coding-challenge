@@ -8,8 +8,9 @@ angular.module("challenge").component("favlist", {
   template: `
       <div>
       <div>
-        <h3>{{$ctrl.post.title}}</h3>
-        <p>{{$ctrl.post.post}}</p>
+      <h3>{{$ctrl.post.title}}</h3>
+      <img src={{$ctrl.post.url}}>
+      <p>{{$ctrl.post.post}}</p>
         <button ng-click="$ctrl.remove($ctrl.post)">Remove</button>
       </div>
       <div>

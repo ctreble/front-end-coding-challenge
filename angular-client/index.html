@@ -12,17 +12,20 @@
   <script src="./app/components/favorites.js" ></script>
   <script src="./app/components/postslist.js" ></script>
   <script src="./app/components/tags.js" ></script>
+  <script src="./app/components/activetag.js" ></script>
   <script src="./app/service/index.js" ></script>
 </head>
  
 <body ng-app="challenge" >
-  <header>
+  <!-- if i have time refactor components to get routing working so it renders each page on its own -->
+  <!-- <header>
     <h1>Blogger</h1>
     <ul>
       <li><a href="#!">Home</a></li>
       <li><a href="#!fav" >Favorites</a></li>
     </ul>
-  </header>
+  </header> -->
+  <!-- <div ng-view></div> -->
   <div>
     <blog></blog>
   </div>

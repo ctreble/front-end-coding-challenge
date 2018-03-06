@@ -1,18 +1,16 @@
 const app = angular.module("challenge", ["ngRoute"]);
 
-app.config([
-  $routeProvider,
-  $locationProvider,
+app.config(
   function($routeProvider, $locationProvider) {
     $routeProvider
       .when("/", {
         template: `<blog></blog>`
       })
       .when("/fav", {
-        template: `<favlist></favlist>`
+        template: `<blog></blog>`
       })
       .otherwise({
         redirect: "/"
       });
   }
-]);
+);
