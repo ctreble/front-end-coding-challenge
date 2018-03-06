@@ -3,6 +3,7 @@ angular.module("challenge").component("blog", {
     const ctrl = this;
     this.posts = [];
     this.favposts = [];
+    this.activetags = [];
     this.getData = function() {
       dataService.getData(data => {
         ctrl.posts = data.data;
@@ -26,6 +27,15 @@ angular.module("challenge").component("blog", {
     };
     this.filter = tag => {
       console.log("filter", tag);
+      ctrl.activetags.push(tag)
+      const filtered = []
+      for(let i = 0; i< ctrl.posts.length; i++){
+        console.log(ctrl.posts[i].tags.includes(tag))
+        if(ctrl.posts[i].tags.includes(tag)){
+            filtered.push(ctrl.posts[i])
+        }
+      }
+    ctrl.posts = filtered;
     };
     this.$onInit = () => {
       this.getData();
@@ -36,6 +46,7 @@ angular.module("challenge").component("blog", {
     <div>
       <h1>Blog Posts</h1>
        <h3>Active Tags</h3>
+       <div>{{$ctrl.activetags}}</div>
        <postslist ng-repeat="post in $ctrl.posts" post="post" add='$ctrl.addfav' filter="$ctrl.filter" ></postslist>
     </div>
     <div>
