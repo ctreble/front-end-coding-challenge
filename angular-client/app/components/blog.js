@@ -46,9 +46,10 @@ angular.module("challenge").component("blog", {
       //remove tag to active filters
       let index = ctrl.activetags.indexOf(tag);
       ctrl.activetags.splice(index, 1);
-      //hack
+      //hack remove all filters and restore original dbposts
       ctrl.activetags = [];
-      ctrl.posts = ctrl.dbPosts;
+    //   ctrl.posts = ctrl.dbPosts;
+      ctrl.getData()
 
       //push only if all the tags are in the object with tags
       //ran out of time to get the unfiliter individually to work
